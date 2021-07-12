@@ -32,22 +32,49 @@
       </div>
       <!-- Section for Featured Image and Facts table -->
       <div class="row" id="mars-featured-image">
-        <div class="col-md-8">
-          <h2>Featured Mars Image</h2>
-          <img
-            src="{{mars.featured_image }}"
-            class="img-responsive"
-            alt="Responsive image"
-          />
-        </div>
-        <div class="col-md-4">
-          <!-- Mars Facts -->
-          <div class="row" id="mars-facts">
-            <h4>Mars Facts</h4>
-            {{ mars.facts | safe }}
-          </div>
-        </div>
-      </div>
+            <div class="col-md-8">
+                <h2>Featured Mars Image</h2>
+                    <img
+                        src="{{mars.featured_image }}"
+                        class="img-responsive"
+                        alt="Responsive image"
+                     />
+            </div>
+            <div class="col-md-4">
+                <!-- Mars Facts -->
+                <div class="row" id="mars-facts">
+                        <h4>Mars Facts</h4>
+                        {{ mars.facts | safe }}
+                </div>
+            </div>
+       </div> 
+      <!-- Hemisphere Info -->
+      <div class="row" id="mars-hemispheres">
+            <div class="col-md-12">
+                <!-- Mars Hemispheres -->
+                <div class="row" id="mars-hemispheres">
+                        <h2 style="text-align:center;">Mars Hemispheres</h2>
+                        <hr style="width:100%">
+                </div>
+            </div>
+            <!-- Hemisphere images -->
+            {% for hemisphere in mars.hemisphere_image_info %}
+                <div class="col-xs-6 col-md-3">
+                    <figure class="img-responsive">
+                        <div class = "thumbnail" style="background-color: black;">
+                            <a href = "{{hemisphere.img_url}}" target = "_blank">
+                                <div>
+                                    <img src = "{{hemisphere.img_url}}" class="img-responsive" alt = "Responsive image" style = "width:90%">
+                                    <br>
+                                    <figcaption style="text-align: left; color: white;">{{hemisphere.title}}</figcaption>
+                                    <br>
+                                </div>
+                            </a>
+                         </div>
+                    </figure>
+                </div>
+            {% endfor %}
+       </div> 
     </div>
   </body>
 </html>
